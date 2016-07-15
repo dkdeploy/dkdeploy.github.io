@@ -1,0 +1,25 @@
+
+.tabs {
+	border: 0;
+}
+
+.tabs-title {
+	border-left: 1px solid $light-gray;
+	border-top: 1px solid $light-gray;
+	border-right: 1px solid $light-gray;
+}
+
+.tabs-title > a {
+	text-transform: uppercase;
+	font-size: rem-calc(18px);
+}
+
+.tabs-title.is-active {
+	a {
+		color: $white;
+	}
+}
+
+.tabs-content {
+	border: 0;
+}

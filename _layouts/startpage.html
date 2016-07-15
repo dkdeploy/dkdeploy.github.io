@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body style="" class="startpage">
+    <div id="content" class="row">
+      {% include header.html %}
+      <div id="startpage-container" class="row hero-cards" data-equalize-on="large" data-equalizer>
+        <div class="large-4 columns card-1" >
+          <div class="inner" data-equalizer-watch>
+          <h3>Extended functionality</h3>
+          <p>Beside all the great functionalities Capistrano provides out of the box, <b>dkdeploy</b> gives you 
+            <ul>
+              <li>Granular file permissions</li>
+              <li>an extended Rollback Manager</li>
+              <li>a Maintenance page during deployment</li>
+              <li>a Copy strategy like on Capistrano 2.x</li>
+              <li>Bower Integration</li>
+            </ul>... and many more great features.
+           </p>
+           </div>
+        </div>
+        <div class="large-4 columns card-2">
+          <div class="inner" data-equalizer-watch>
+            <h3>Perfect for Continous Deployment</h3>
+            <p>We are using dkdeploy on our <b>Jenkins Server</b> for hundreds of customer and internal projects.
+              We are deploying a wide range of publications ranging from large PHP-Applications such as <b>Phabricator</b> and <b>TYPO3</b> to 
+             custom Rails Apps, Static Websites and even Go-Applications like <b>Mattermost</b>. 
+             With dkdeploy we are able to a simplify our deployment process make life easier for developers and customers.</p>
+           </div>
+        </div>
+        <div class="large-4 columns card-3">
+          <div class="inner" data-equalizer-watch>
+            <h3>PHP Ready!</h3>
+            <p>
+              PHP is a first-class citizen for <b>dkdeploy</b>.<br>
+              It supports composer, database migrations with Doctrine and clearing the OPCache during deployment. 
+              Also, it comes with built-in support for TYPO3 the Open-Source CMS ...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: none">
+      {{ content }}
+    </div>
+    {% include footer.html %}
+  </div>
+  
+  </body>
+
+</html>

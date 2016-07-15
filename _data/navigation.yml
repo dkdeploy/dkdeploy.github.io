@@ -1,0 +1,103 @@
+- title: "Introduction"
+  main_navigation_title: "How-To Guides"
+  section: "guides"
+  href: "/guides/"
+  nav2:
+    - title: "Setup"
+      href: setup/
+      only_nav: true
+      nav3:
+        - title: "I Your local machine"
+          href: "local_machine.html"
+        - title: "II The remote Server"
+          href: server.html
+        - title: "II Installing dkdeploy"
+          href: installation.html
+    - title: "Static Website"
+      href: static/
+      only_nav: true
+      html_label: easy
+      nav3:
+        - title: "I Configuration"
+          href: "configuration.html"
+        - title: "II Deployment"
+          href: deployment.html
+    - title: "Simple PHP Application"
+      href: php-app/
+      only_nav: true
+      html_label: easy
+      nav3:
+        - title: "I Configuration"
+          href: "configuration.html"
+        - title: "II Deployment"
+          href: deployment.html
+- title: "Introduction"
+  main_navigation_title: "Capistrano Tasks"
+  section: "rake"
+  href: "/rake/"
+  nav2:
+    - title: "dkdeploy-core"
+      href: "dkdeploy-core/"
+      only_nav: true
+      nav3:
+        - title: "apache"
+          href: apache.html
+        - title: "assets"
+          href: assets.html
+        - title: "bower"
+          href: bower.html
+        - title: "current_folder"
+          href: current_folder.html
+        - title: "db"
+          href: db.html
+        - title: "new_release_path"
+          href: new_release_path.html
+        - title: "enhanced_symlinks"
+          href: enhanced_symlinks.html
+        - title: "fail"
+          href: fail.html
+        - title: "file_access"
+          href: file_access.html
+        - title: "maintenance"
+          href: maintenance.html
+        - title: "project_version"
+          href: project_version.html
+        - title: "strategy"
+          href: strategy.html
+        - title: "utils"
+          href: utils.html
+    - title: "dkdeploy-php"
+      href: "dkdeploy-php/"
+      only_nav: true
+      nav3:
+        - title: "Overview"
+          href: index.html
+        - title: "composer"
+          href: composer.html
+        - title: "db"
+          href: "db.html"
+        - title: "php"
+          href: "php.html"
+    - title: "dkdeploy-typo3-cms"
+      href: "dkdeploy-typo3-cms/"
+      only_nav: true
+      nav3:
+        - title: Overview
+          href: index.html
+        - title: cache
+          href: cache.html
+        - title: cli
+          href: cli.html
+        - title: typo3
+          href: typo3.html
+        - title: typoscript
+          href: typoscript.html
+- title: "Variables"
+  section: "variables"
+  href: "/variables"
+#- title: "FAQ"
+#  section: "faq"
+#  href: "/faq/"
+- title: "Github"
+  section: "github"
+  href: "/github.html"

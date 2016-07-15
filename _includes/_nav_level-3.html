@@ -1,0 +1,11 @@
+{% for lastnav in subnav.nav3 %}
+  {% capture current_nav %}{{nav.href}}{{subnav.href}}{{ lastnav.href }}{% endcapture %}
+  {% if current_path == current_nav %}
+    {% assign active = "active" %}
+  {% else %}
+    {% assign active = "" %}
+  {% endif %}
+  <li class="{{active}}">
+    <a href="{{ nav.href | prepend: site.baseurl }}{{subnav.href}}{{lastnav.href}}">{{lastnav.title}}</a>
+  </li>
+{% endfor %}

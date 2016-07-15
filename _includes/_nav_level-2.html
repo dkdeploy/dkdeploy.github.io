@@ -1,0 +1,23 @@
+{% for subnav in nav.nav2 %}
+  {% capture current_nav %}{{nav.href}}{{subnav.href}}.html{% endcapture %}
+  {% if current_path == current_nav %}
+    {% assign active = "active" %}
+  {% else %}
+    {% assign active = "" %}
+  {% endif %}
+  {% if subnav.only_nav == true %}
+    <li class="docs-menu-title">
+      <span>{{subnav.title}}</span>
+      {% if subnav.html_label %}
+        <span class="label">{{subnav.html_label}}</span>
+      {% endif %}
+  {% else %}
+      <li class="{{active}}"><a href="{{ nav.href | prepend: site.baseurl }}{{subnav.href}}">{{subnav.title}}</a>
+  {% endif %}
+  {% if subnav.nav3 != empty %}
+    <ul class="menu vertical docs-menu nav3">
+      {% include _nav_level-3.html %}
+    </ul>
+  {% endif %}
+  </li>
+{% endfor %}

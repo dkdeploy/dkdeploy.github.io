@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body>
+  <div id="content" class="row">
+    {% include header.html %}
+    <div class="large-3 sidebar columns">
+
+      <ul class="vertical menu docs-menu nav1">
+        {% assign current_path = page.url %}
+
+        {% for nav in site.data.navigation %}
+          {% if page.section == nav.section %}
+            {% capture current_nav %}{{nav.href}}{% endcapture %}
+            {% if current_path == current_nav %}
+              {% assign active = "active" %}
+            {% else %}
+              {% assign active = "" %}
+            {% endif %}
+
+            <li class="docs-menu-title {{active}}">
+              <a href="{{nav.href}}">{{nav.title}}</a>
+              {% if nav.subnav2 != empty %}
+                <ul class="menu vertical docs-menu nav2">
+                  {% include _nav_level-2.html %}
+                </ul>
+              {% endif %}
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div id="main-content" class="large-9 main-content columns">
+          {{ content }}
+        </div>
+      </div>
+      {% include footer.html %}
+    </body>
+</html>

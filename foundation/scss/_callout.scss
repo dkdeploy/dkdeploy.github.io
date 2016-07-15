@@ -1,0 +1,38 @@
+// Startpage
+
+.startpage .callout.large.primary {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.9);
+  border-width: 0 !important;
+}
+
+.callout {
+  &.primary {
+    &:before {
+      content: "\f15e";
+      font-family: "foundation-icons";
+      color: $primary-color * 0.7;
+      margin-right: 4px;
+    }
+  }
+  &.warning {
+    &:before {
+      content: "\f15e";
+      font-family: "foundation-icons";
+      color: $warning-color * 0.7;
+      margin-right: 4px;
+    }
+  }
+}
+.callout.large.primary{
+  &:before {
+    display: none;
+  }
+  background: $primary-color;
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient($gradient_style, $g1 , $g2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient($gradient_style, $g1 , $g2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  h1 {
+    color: #fff;
+  }
+}

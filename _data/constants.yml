@@ -1,0 +1,27 @@
+deploy:
+  stage: "dev"
+  host: "project.example"
+  domain: "http://project.example/"
+  user: "vagrant"
+  group: "apache"
+  group_alternate: "website-user"
+  vendor_root: /var/www/your-domain/
+  path: /var/www/your-domain/htdocs/
+  release: 20160610T1303-42
+  shared_path: /var/www/your-domain/shared/
+  current_folder: /var/www/your-domain/current/
+  releases_folder: /var/www/your-domain/releases/
+  release_folder: /var/www/your-domain/releases/20160610T1303-42/
+  release2_folder: /var/www/your-domain/releases/20160610T1421-84/
+
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  charset: "utf8"
+  database: "your_database"
+  username: "your_username"
+  password: "your_password"
+
+project:
+  workspace: /home/your-username/Documents/my-project/
+  user: "your_username"

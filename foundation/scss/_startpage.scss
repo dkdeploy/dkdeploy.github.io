@@ -1,0 +1,66 @@
+
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+body {
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #f4f4f4 , #e9e9e9); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #f4f4f4 , #e9e9e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#content {
+  background: white;
+  .callout:first-child {
+    border-width: 0px;
+  }
+}
+
+body.startpage {
+  #content {
+    background: transparent;
+  }
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient($gradient_style, $g1 , $g2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient($gradient_style, $g1 , $g2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .card-1 .inner{
+    background: rgba(255,255,255, 0.8);
+    &:hover{
+
+    }
+  }
+  .card-2 .inner{
+    background: rgba(255,255,255, 0.9);
+    &:hover{
+
+    }
+  }
+  
+  .card-3 .inner{
+    background: rgba(255,255,255, 1);
+
+    &:hover{
+
+    }
+  }
+
+  .inner {
+    padding: rem-calc(10px);
+    border-radius: 3px;
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  .hero-content {
+    color: #fff;
+    background: rgba(255,255,255, 0.3);
+    padding: 1em;
+  }
+}

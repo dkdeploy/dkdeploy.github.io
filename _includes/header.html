@@ -1,0 +1,42 @@
+<header>
+  <div data-sticky-container>
+    <div class="sticky-content sticky" data-sticky data-margin-top="0" style="width:100%">
+      <div class="title-bar" data-responsive-toggle="mobile-navigation" style="width:100%;z-index: 1;">
+        <button class="menu-icon" type="button" data-toggle><i class="step fi-align-justify size-24"></i></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+      <div class="top-bar show-for-medium" >
+        <div class="top-bar-left">
+          <ul class="medium-horizontal menu">
+            <li class="menu-text"><a href="{{ site.url }}">dkdeploy</a></li>
+            {% for nav in site.data.navigation %}
+              {% if page.section == nav.section %}
+                {% assign active = "active" %}
+              {% else %}
+                {% assign active = "" %}
+              {% endif %}
+              <li class="{{active}}"><a href="{{ nav.href | prepend: site.baseurl }}">{% if nav.main_navigation_title %}{{ nav.main_navigation_title }}{% else %}{{ nav.title }}{% endif %}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="top-bar-right" id="js-toc"></div>
+      </div>
+    </div>
+  </div> <!-- end sticky-container -->
+  <ul id="mobile-navigation" class="hide-for-medium vertical menu" data-responsive-menu="small-dropdown">
+    <li class="menu-text"><a href="/">dkdeploy</a></li>
+    {% for nav in site.data.navigation %}
+      {% if page.section == nav.section %}
+        {% assign active = "active" %}
+      {% else %}
+        {% assign active = "" %}
+      {% endif %}
+      <li class="{{active}}"><a href="{{ nav.href | prepend: site.baseurl }}">{% if nav.main_navigation_title %}{{ nav.main_navigation_title }}{% else %}{{ nav.title }}{% endif %}</a></li>
+    {% endfor %}
+  </ul>
+</header>
+<div class="callout large primary">
+  <div class="row column">
+    <h1>{{ page.title || "No Title"}}</h1>
+  </div>
+</div>

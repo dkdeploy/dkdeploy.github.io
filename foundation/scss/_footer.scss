@@ -1,0 +1,40 @@
+footer {
+  text-align: center;
+  background: transparent;
+  margin-top: rem-calc(10px);
+  margin-bottom: rem-calc(30px);
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #737373;
+  a:hover {
+   text-decoration: underline; 
+  }
+  .fi-heart {
+    color: red * 0.8;
+    display: inline-block;
+    &:hover{
+      @extend .flip;
+    }
+  }
+}
+footer {
+  .row {
+    border-radius: 3px;
+  }
+}
+.footer-content {
+  padding: 10px 0;
+}
+
+.startpage footer {
+  color: rgba(255, 255,255, 0.8);
+
+  a, a:link,
+  a:visited {
+    color: rgba(255, 255,255, 0.8);
+  }
+
+  .row {
+  background: transparent;
+  }
+}

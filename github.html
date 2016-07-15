@@ -1,0 +1,13 @@
+---
+layout: wide
+title: "dkdeploy on github.com"
+section: "github"
+---
+
+<ul class="nav">
+  {% for repository in site.github.public_repositories %}
+    <li>
+      <img src="{{ site.repository.avatar_url }}"><a href="{{ repository.html_url }}" target="blank">{{ repository.name }}</a>
+    </li>
+  {% endfor %}
+</ul>
