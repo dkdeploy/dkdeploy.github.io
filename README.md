@@ -1,6 +1,6 @@
 # dkdeploy documentation
 
-![Travis CI Build Status](https://travis-ci.org/dkdeploy/dkdeploy.github.io.svg?branch=develop)
+![Travis CI Build Status](https://travis-ci.org/dkdeploy/dkdeploy.github.io.svg?branch=master)
 
 This repository contains the documentation for dkdeploy. It is powered by [Jekyll](https://jekyllrb.com) 3.1.
 
