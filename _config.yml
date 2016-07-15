@@ -9,7 +9,7 @@
 title: dkdeploy documentation
 email: opensource@dkd.de
 description: dkdeploy documentation
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dkdeploy.github.io" # the base hostname & protocol for your site
 twitter_username: dkd_de
 github_username:  dkdeploy
