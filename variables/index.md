@@ -20,7 +20,7 @@ set :dump_table, "dumpable_table_name"
 cap {{site.data.constants.deploy.stage}} db:dump_table "dump_table[dumpable_table_name]"
 {% endhighlight %}
 
-3. We recommend for automated deployments setting a capistalized environment variable like:
+3. We recommend for automated deployments setting a capitalized environment variable like:
 
 {% highlight ruby %}
 DUMPABLE_TABLE_NAME=dumpable_table_name cap {{site.data.constants.deploy.stage}} db:dump_table
