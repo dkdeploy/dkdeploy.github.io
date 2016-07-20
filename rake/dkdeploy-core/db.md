@@ -192,7 +192,7 @@ db_settings.{{site.data.constants.deploy.stage}}.yaml
 
 There are no variables that need to be configured.
 
-#### Usage
+### Usage
 
 This task is used internally when
 
@@ -207,7 +207,7 @@ $ cap {{site.data.constants.deploy.stage}} db:read_db_settings
 This task raises an error if the configuration file does not exists on the target stage.
 </div>
 
-#### Output
+### Output
 
 There is no output on the screen.
 The Yaml file is available in the temp directory.

@@ -68,8 +68,6 @@ See [bower.io](http://bower.io/) for details about bower.
 
 ### Configuration
 
-#### Variables
-
 By default dkdeploy will assume the `:bower_paths` path as directories of your bower.json files. You can overwrite this by setting the variable `:bower_paths` in your Capistrano configuration. By default, the  `:bower_paths` variable fetches from the `:copy_source` variable.
 
 Again, the multiple directories are relative the current working directory.

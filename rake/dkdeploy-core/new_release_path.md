@@ -39,8 +39,6 @@ $ BUILD_TAG=1 JOB_NAME=foo BUILD_NUMBER=bar cap {{site.data.constants.deploy.sta
 
 = **{{site.data.constants.deploy.release2_folder}}**
 
-
-
 ## failed
 
 Handle deployment errors
@@ -59,17 +57,17 @@ Remove and archive rolled-back release.
 
 This task simulates a failing deployments. It is used for the tests - especially for testing the Rollback Manager.
 
-#### Configuration
+### Configuration
 
 There is nothing to configure, the task simply raises an exception.
 
-#### Usage
+### Usage
 
 Example usage: 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} deploy:fail
 {% endhighlight %}
 
-#### Output
+### Output
 
 A console output that the deployment has failed.

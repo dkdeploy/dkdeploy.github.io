@@ -9,13 +9,13 @@ layout: default
 
 Sets owner and group of the shared and release path. This task invokes **set_owner_group_of_shared_path** and **set_owner_group_of_release_path**.
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} file_access:set_owner_group
 {% endhighlight %}
 
-#### Output
+### Output
 
 See outputs in tasks **set_owner_group_of_shared_path** and **set_owner_group_of_release_path**.
 
@@ -23,20 +23,20 @@ See outputs in tasks **set_owner_group_of_shared_path** and **set_owner_group_of
 
 Sets owner and group of the shared path.
 
-#### Configuration
+### Configuration
 
 {% highlight ruby %}
 set :default_file_access_owner_of_shared_path, "{{site.data.constants.deploy.user}}"
 set :default_file_access_group_of_shared_path, "{{site.data.constants.deploy.group}}"
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} file_access:set_owner_group_of_shared_path
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell %}
 $ sudo chown {{site.data.constants.deploy.user}}:{{site.data.constants.deploy.group}} [project_path]/shared

@@ -10,7 +10,7 @@ layout: default
 
 **deploy.rb** contains a hash of `:enhanced_linked_dirs`. The linked_dirs task reads this hash and creates the directories listed in the key of this hash, if they do not exist.
 
-#### Configuration
+### Configuration
 
 Listing of `:enhanced_linked_dirs` in **deploy.rb:**
 {% highlight ruby %}

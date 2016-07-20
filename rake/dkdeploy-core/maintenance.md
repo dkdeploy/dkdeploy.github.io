@@ -9,18 +9,18 @@ layout: default
 
 Creates a maintenance.json file.
 
-#### Configuration
+### Configuration
 
 none
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} maintenance:enable
 {% endhighlight %}
 
 
-#### Output
+### Output
 
 Creates the file **shared_path/config/maintenance.json** with no content
 
@@ -28,18 +28,18 @@ Creates the file **shared_path/config/maintenance.json** with no content
 
 Creates a maintenance.json file.
 
-#### Configuration
+### Configuration
 
 none
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} maintenance:enable_permanent
 {% endhighlight %}
 
 
-#### Output
+### Output
 
 Creates the file **shared_path/config/maintenance.json** with enabled_permanent: true
 
@@ -47,29 +47,28 @@ Creates the file **shared_path/config/maintenance.json** with enabled_permanent:
 
 Removes a maintenance.json file. Ony works if the maintenance mode wasnt set with enable_permanent, if so use disable_permanent.
 
-#### Configuration
+### Configuration
 
 none
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} maintenance:disable
 {% endhighlight %}
 
-
 ## disable_permanent
 
 Removes a maintenance.json file.
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} maintenance:disable_permanent
 {% endhighlight %}
 
 
-#### Output
+### Output
 
 none
 

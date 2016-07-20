@@ -5,7 +5,7 @@ section: "rake"
 layout: default
 ---
 
-#### Configuration
+### Configuration
 
 Add these variables in your deploy.rb file before using any of the tasks below.
 
@@ -78,7 +78,7 @@ Empty asset folders.
 
 Compiles sass files in a css file.
 
-#### Configuration
+### Configuration
 
 Set your sass file paths or whole directory paths from your project in **:compass_sources**.
 Possible values for `:compass_compile_arguments` are `['--boring', '--environment', 'production']`.

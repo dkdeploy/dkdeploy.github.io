@@ -51,7 +51,7 @@ $ cap {{site.data.constants.deploy.stage}} utils:upload_file
 $ cap {{site.data.constants.deploy.stage}} "utils:upload_file['htdocs/file.html']"
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell %}
       Creating directory {{site.data.constants.deploy.current_folder}}temp.
@@ -169,7 +169,7 @@ set :release_path, 'deploy/current'
 set :ssh_options, { keys:  ['.ssh/my-special-key'], user: '{{site.data.constants.deploy.user}}' }
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 Task is used in project root.
 
@@ -221,7 +221,7 @@ And then type the directories - separated by whitespace - that should be created
 $ cap {{site.data.constants.deploy.stage}} "utils:create_custom_directories['one_directory', 'two_directory']"
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell %}
       01 mkdir -p {{site.data.constants.deploy.path}}shared/one_directory,
