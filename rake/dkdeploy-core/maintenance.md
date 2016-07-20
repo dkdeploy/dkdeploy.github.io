@@ -22,7 +22,7 @@ $ cap {{site.data.constants.deploy.stage}} maintenance:enable
 
 #### Output
 
-Creates the file `shared_path/config/maintenance.json` with no content
+Creates the file **shared_path/config/maintenance.json** with no content
 
 ## enable_permanent
 
@@ -41,7 +41,7 @@ $ cap {{site.data.constants.deploy.stage}} maintenance:enable_permanent
 
 #### Output
 
-Creates the file `shared_path/config/maintenance.json` with enabled_permanent: true
+Creates the file **shared_path/config/maintenance.json** with enabled_permanent: true
 
 ## disable
 

@@ -9,40 +9,35 @@ layout: default
 
 This tasks returns the current release path.
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} get_current_path
 {% endhighlight %}
 
-#### Output
+### Output
+
 The newest release path is printed on console.
 
-Example for an output:
-
-{% highlight shell %}
+{% highlight shell-session%}
 $ cap {{site.data.constants.deploy.stage}} get_current_path
   {{site.data.constants.deploy.release_folder}}
 {% endhighlight %}
 
 ## upload_file
 
-This uploads a file to the server in the specified stage.
+This uploads a file to the server specified in your stage configuration.
 
-#### Configuration
+### Configuration
 
-What should be documented in this section:
+If the file path contains your `:copy_source` (for example **htdocs/newfile.html**) path this path will not be used on the server.
 
-##### Variables
-
-If the file path contains your **:copy_source** (for example **htdocs/newfile.html**) path this path will not be used on the server.
-
-#### Usage
+### Usage
 
 The task should be used in your project root.
 There are two ways to use this task:
 
-##### specify file path interactively
+#### Specify file path interactively
 
 Then the task will ask you for a file name.
 
@@ -50,18 +45,14 @@ Then the task will ask you for a file name.
 $ cap {{site.data.constants.deploy.stage}} utils:upload_file
 {% endhighlight %}
 
-##### specify file path as task argument
-
-Example:
+##### Specify file path as task argument
 
 {% highlight shell %}
-$ cap {{site.data.constants.deploy.stage}} utils:upload_file['htdocs/file.html']
+$ cap {{site.data.constants.deploy.stage}} "utils:upload_file['htdocs/file.html']"
 {% endhighlight %}
-
 
 #### Output
 
-Example for an output:
 {% highlight shell %}
       Creating directory {{site.data.constants.deploy.current_folder}}temp.
       01 mkdir -p {{site.data.constants.deploy.current_folder}}temp
@@ -74,12 +65,10 @@ Example for an output:
 
 This tasks downloads the specified file from the server in the specified stage.
 
-#### Configuration
+### Variables
 
-##### Variables
-
-The variable **deploy_to** defines the path in which the file to download is requested.
-The variable **local_dump_path** defines where the file will be downloaded.
+The variable `:deploy_to` defines the path in which the file to download is requested.
+The variable `:local_dump_path` defines where the file will be downloaded.
 
 Use following as code example:
 {% highlight ruby %}
@@ -87,13 +76,13 @@ set :deploy_to, 'my_deploy_path'
 set :local_dump_path, 'temp'
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 Use this task in the project root.
 
 There are two ways to use this task:
 
-##### specify file path interactively
+##### Specify file path interactively
 
 Then the task will ask you for a file name.
 
@@ -101,50 +90,47 @@ Then the task will ask you for a file name.
 $ cap {{site.data.constants.deploy.stage}} utils:download_file
 {% endhighlight %}
 
-##### specify file path as task argument
-
-Example:
+##### Specify file path as task argument
 
 {% highlight shell %}
-$ cap {{site.data.constants.deploy.stage}} utils:download_file['download_file.txt']
+$ cap {{site.data.constants.deploy.stage}} "utils:download_file['download_file.txt']"
 {% endhighlight %}
 
-#### Output
+### Output
 
-Example for an output:
 {% highlight shell %}
       Downloading {{site.data.constants.deploy.current_folder}}download_file.txt to temp/download_file.dkdeploy-core.dev.txt.
       Downloading temp/download_file.dkdeploy-core.dev.txt 100.0%
 {% endhighlight %}
 
-#### Additional informations
+### Additional informations
 
-If the file exists already in your **local_dump_path** it will be overwritten.
+If the file exists already in your `:local_dump_path` it will be overwritten.
 
 ## watch_file
 
 This task watches a file on the server (with **tail -f**). This is typically used to inspect logfiles of running servers.
 
-#### Configuration
+### Configuration
 
-##### Variables
-If no argument is specified, the variable **watch_file_name** will be used.
-Use following as code example:
+### Variables
+
+If no argument is specified, the variable `:watch_file_name` will be used.
+
 {% highlight ruby %}
 set :watch_file_name, '/var/log/apache2/access.log'
 {% endhighlight %}
 
-##### Requirements
+### Requirements
+
 The capistrano user on the server needs to be able to access the file. File permissions on the server need to be setup correctly.
 
-#### Usage
+### Usage
 Use this task in your project root.
-If **watch_file_name** variable is not set then the file path on the server has to be an argument.
-
-##### Example
+If `:watch_file_name` variable is not set then the file path on the server has to be an argument.
 
 {% highlight shell %}
-$ cap {{site.data.constants.deploy.stage}} utils:watch_file['/var/log/apache2/access.log']
+$ cap {{site.data.constants.deploy.stage}} "utils:watch_file['/var/log/apache2/access.log']"
 {% endhighlight %}
 
 or with the variable set
@@ -153,11 +139,11 @@ or with the variable set
 $ cap {{site.data.constants.deploy.stage}} utils:watch_file
 {% endhighlight %}
 
-#### Output
+### Output
 
 The output of file is watched with **tail -f**
 
-#### Additional information
+### Additional information
 
 As with all command tasks, you can use CTRL+C to end the process.
 
@@ -165,19 +151,16 @@ As with all command tasks, you can use CTRL+C to end the process.
 
 This task copies data to the server with **rsync**.
 
-#### Configuration
-
-##### Variables
+### Configuration
 
 The task uses the following variables:
 
-* **rsync_roles** - The capistrano roles to use. If not set then **:app** is used
-* **rsync_path** - the directory of the local file(s) ( if not set, then **copy_source** is used)
-* **rsync_exclude** - file(s) that should be excluded
-* **release_path** - Path on the server where files are uploaded or synced
-* **ssh_options** - hash, specify ssh key files with **:keys** ssh user with **:user**
+* `:rsync_roles` - The capistrano roles to use. If not set then `:app` is used
+* `:rsync_path` - the directory of the local file(s) ( if not set, then `:copy_source` is used)
+* `:rsync_exclude` - file(s) that should be excluded
+* `:release_path` - Path on the server where files are uploaded or synced
+* `:ssh_options` - hash, specify ssh key files with `:keys` ssh user with `:user`
 
-Use following as code example:
 {% highlight ruby %}
 set :rsync_roles, [:app, :db ]
 set :rsync_path, 'htdocs'
@@ -190,15 +173,12 @@ set :ssh_options, { keys:  ['.ssh/my-special-key'], user: '{{site.data.constants
 
 Task is used in project root.
 
-##### Example
-
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} utils:rsync
 {% endhighlight %}
 
-#### Output
+### Output
 
-Example for an output:
 {% highlight shell %}
       Use host '{{site.data.constants.deploy.host}}' for rsync.
       01 rsync --verbose --recursive --perms --times --perms --perms --compress --force --cvs-exclude ./ --rsh="ssh -i '/Users/home-directory/projects/dkdeploy-core/tmp/test_app/../../.vagrant/machines/master/virtualbox/private_key'" {{site.data.constants.project.user}}@{{site.data.constants.deploy.host}}:/home/vagrant/deploy/current
@@ -213,16 +193,16 @@ Example for an output:
 
 Creates a new directory in the shared directory on the server.
 
-#### Configuration
+### Configuration
 
-The variable **deploy_path** is used.
+The variable `:deploy_path` is being used.
 
 Use following as code example:
 {% highlight ruby %}
 set :deploy_to, 'deploy'
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 Use this task in the project root.
 This task can be used in two ways:
@@ -238,14 +218,11 @@ And then type the directories - separated by whitespace - that should be created
 ##### With argument
 
 {% highlight shell %}
-$ cap {{site.data.constants.deploy.stage}} utils:create_custom_directories['one_directory', 'two_directory']
+$ cap {{site.data.constants.deploy.stage}} "utils:create_custom_directories['one_directory', 'two_directory']"
 {% endhighlight %}
 
 #### Output
 
-Is there an output generated?
-
-Example for an output:
 {% highlight shell %}
       01 mkdir -p {{site.data.constants.deploy.path}}shared/one_directory,
     ✔ 01 {{site.data.constants.deploy.user}}@{{site.data.constants.deploy.host}} 0.347s

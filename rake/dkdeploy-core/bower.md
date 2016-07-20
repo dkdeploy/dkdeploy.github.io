@@ -15,9 +15,9 @@ See [bower.io](http://bower.io/) for details about bower.
 
 ### Configuration
 
-By default dkdeploy will assume the **:bower_path** path as location of your bower.json file.
-You can overwrite this by setting the variable **:bower_path** in your Capistrano configuration.
-By default the **bower_path** variable is fetched from the **:copy_source** variable.
+By default dkdeploy will assume the `:bower_path` path as location of your bower.json file.
+You can overwrite this by setting the variable `:bower_path` in your Capistrano configuration.
+By default the `:bower_path` variable is fetched from the `:copy_source` variable.
 
 This path is relative to your current working directory.
 
@@ -37,7 +37,7 @@ In your project directory.
 
 #### Examples
 
-With the variables from your capistrano configuration:
+With the variables from your Capistrano configuration:
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} "bower:run[install]"
@@ -70,8 +70,7 @@ See [bower.io](http://bower.io/) for details about bower.
 
 #### Variables
 
-By default dkdeploy will assume the **:bower_paths** path as directories of your bower.json files. You can overwrite this by setting the variable **:bower_paths** in your Capistrano configuration.
-By default, the **:bower_paths** variable fetches from the **:copy_source** variable.
+By default dkdeploy will assume the `:bower_paths` path as directories of your bower.json files. You can overwrite this by setting the variable `:bower_paths` in your Capistrano configuration. By default, the  `:bower_paths` variable fetches from the `:copy_source` variable.
 
 Again, the multiple directories are relative the current working directory.
 
@@ -82,7 +81,7 @@ set :bower_path, "my_bower_path, my_bower_path"
 
 #### Requirements
 
-In all your specified directories you need bower.json files. And the directories need to exist.
+In all your specified directories you need **bower.json** files. And the directories need to exist.
 
 ### Usage
 
@@ -92,7 +91,7 @@ In your project directory.
 
 #### Example
 
-With the variables from your capistrano configuration:
+With the variables from your Capistrano configuration:
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} "bower:run_all[install]"

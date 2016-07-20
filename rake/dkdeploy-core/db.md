@@ -9,12 +9,12 @@ The namespace _db_ offers tasks to handle the database configuration, structure 
 
 ## add_default_content
 
-Add default content from config/preseed/default_content.sql.gz to database
+Add default content from **config/preseed/default_content.sql.gz** to database
 
 ### Usage
 
 Used for initial setup of the project.
-This requires an existing database configuration (see _upload_settings_).
+This requires an existing database configuration (see [upload_settings](#uploadsettings)).
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} db:add_default_content
@@ -22,12 +22,12 @@ $ cap {{site.data.constants.deploy.stage}} db:add_default_content
 
 ## add_default_structure
 
-Add structure content from config/preseed/default_structure.sql.gz to database
+Add structure content from **config/preseed/default_structure.sql.gz** to database
 
 ### Usage
 
 Used for initial setup of the project.
-This requires an existing database configuration (see _upload_settings_).
+This requires an existing database configuration (see [upload_settings](#uploadsettings)).
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} db:add_default_structure
@@ -54,7 +54,7 @@ $ cap {{site.data.constants.deploy.stage}} db:add_default_structure
 
 ## console
 
-Run interactive MySQL console
+Run interactive MySQL console.
 
 ### Usage
 
@@ -64,14 +64,14 @@ This function requires an existing configuration file on the target stage.
 $ cap {{site.data.constants.deploy.stage}} db:console
 {% endhighlight %}
     
-<div class="callout alert">
+<div class="callout warning">
 This task raises an error if the connection could not be established.
 </div>
 
 ## download
 
 Dump complete database without cache table content to local temp folder.
-Triggers the task _download_structure_ and _download_content_.
+Triggers the task [downloadstructure](#downloadstructure) and [download_content](#downloadcontent).
 
 ### Usage
 
@@ -101,16 +101,16 @@ $ cap {{site.data.constants.deploy.stage}} db:download_structure
 
 ## download_tables
 
-Download database tables
+Download database tables.
 
 ### Usage
 
-This task offers three parameters `file_path`, `file_name` and `table_names`.
+This task offers three parameters `:file_path`, `:file_name` and `:table_names`.
  
 The variable `file_path` defines the path where you want to download the database dump. Default value is _temp_.
-The variable `file_name` defines the name of the file where the download is stored.
+The variable `:file_name` defines the name of the file where the download is stored.
 
-The tables to be dumped are set with `table_names` as a comma separated list of table names.
+The tables to be dumped are set with `:table_names` as a comma separated list of table names.
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} db:download_tables[file_path,file_name,table_names]
@@ -118,17 +118,17 @@ $ cap {{site.data.constants.deploy.stage}} db:download_tables[file_path,file_nam
 
 ## dump_table
 
+Dump content of a database table to local  folder
+
 ### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} db:dump_table[table_name]
 {% endhighlight %}
 
-Dump content of a database table to local temp folder
-
 ## dump_tables
 
-Dump content of a list of database tables to a local folder
+Dump content of a list of database tables to a local folder.
 
 ### Usage
 
@@ -138,7 +138,7 @@ $ cap {{site.data.constants.deploy.stage}} db:dump_tables[file_path,file_name,ta
 
 ## update
 
-Upload, unzip and execute database script
+Upload, unzip and execute database script.
 
 ### Configuration
 
@@ -146,7 +146,7 @@ This task requires the path to the database dump and the filename to be uploaded
 
 The file has to be compressed by gzip.
 
-<div class="callout alert">
+<div class="callout warning">
 This task raises an error if the local database dump does not exists. <br />
 This task raises an error if the database dump could not be imported.
 </div>
@@ -160,7 +160,7 @@ $ cap {{site.data.constants.deploy.stage}} db:update[file_path,zipped_db_file]
 
 ## upload_settings
 
-Upload database settings file. Existing configuration file will be deleted. 
+Upload database settings file. An existing configuration file will be deleted. 
 
 ### Usage
 
@@ -177,16 +177,18 @@ This task raises an error if the given credentials are not valid.
 
 Load the database configuration from the given stage.
 
-#### Configuration
+### Configuration
 
 This tasks requires an existing database configuration file on the target stage.
 
 The filename containing the configuration starts with _db_settings._, the name of the stage.
-The filename end with _.yaml_
+The filename ends with _.yaml_
 
-Example:
+#### Example
 
-    db_settings.{{site.data.constants.deploy.stage}}.yaml
+{% highlight shell %}
+db_settings.{{site.data.constants.deploy.stage}}.yaml
+{% endhighlight %}
 
 There are no variables that need to be configured.
 
@@ -201,17 +203,16 @@ This task is used internally when
 $ cap {{site.data.constants.deploy.stage}} db:read_db_settings
 {% endhighlight %}
 
-<div class="callout alert">
+<div class="callout warning">
 This task raises an error if the configuration file does not exists on the target stage.
 </div>
-
 
 #### Output
 
 There is no output on the screen.
 The Yaml file is available in the temp directory.
 
-Example for an output:
+Example for a db_settings file:
 {% highlight yml %}
 ---
 database:

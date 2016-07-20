@@ -5,10 +5,8 @@ section: "rake"
 layout: default
 ---
 
-## Assets tasks
-Tasks to handle assets.
+#### Configuration
 
-### Configuration
 Add these variables in your deploy.rb file before using any of the tasks below.
 
 {% highlight ruby %}
@@ -17,44 +15,52 @@ set :asset_default_content, %w(fileadmin uploads)
 set :asset_exclude_file, 'config/assets_exclude_file.txt'
 {% endhighlight %}
 
-### add_default_content
-Adds default asset contents from config/preseed/ to the server.
-Files fileadmin.tar.gz and uploads.tar.gz will be uploaded to the shared assets directory.
+## add_default_content
 
-#### Usage
+Adds default asset contents from **config/preseed/** to the server.
+Files **fileadmin.tar.gz** and **uploads.tar.gz** will be uploaded to the shared assets directory.
+
+### Usage
+
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} assets:add_default_content
 {% endhighlight %}
 
+## download
 
-### download
-Copies current contents from configured asset folders on the server to the local ./temp/assets directory
+Copies current contents from configured asset folders on the server to the local **./temp/assets** directory.
 
-#### Usage
+### Usage
+
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} assets:download
 {% endhighlight %}
 
-#### Output
-Assets files are stored in the ./temp/assets/.
+### Output
 
-### update
-Adds asset contents from ./temp/assets directory to the server.
+Assets files are stored in the **./temp/assets/**.
 
-#### Usage
+## update
+
+Adds asset contents from **./temp/assets** directory to the server.
+
+### Usage
+
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} assets:update
 {% endhighlight %}
 
-### cleanup
-Removes contents of the folders configured in asset_folders variable on the server.
+## cleanup
 
-#### Usage
+Removes contents of the folders configured in `:asset_folders` variable on the server.
+
+### Usage
+
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} assets:cleanup
 {% endhighlight %}
 
-#### Output
+### Output
 Empty asset folders.
 
 {% highlight shell-session %}
@@ -68,12 +74,14 @@ Empty asset folders.
 ✔ 04 vagrant@{{site.data.constants.deploy.host}} 0.004s
 {% endhighlight %}
 
-### compile_compass
+## compile_compass
+
 Compiles sass files in a css file.
 
 #### Configuration
+
 Set your sass file paths or whole directory paths from your project in **:compass_sources**.
-Possible values for **:compass_compile_arguments** are `['--boring', '--environment', 'production']`.
+Possible values for `:compass_compile_arguments` are `['--boring', '--environment', 'production']`.
 
 {% highlight ruby %}
 set :compass_sources, %w(
@@ -83,29 +91,33 @@ set :compass_sources, %w(
 set :compass_compile_arguments, []
 {% endhighlight %}
 
-Add a config.rb file in your sass stylesheets directory.
+Add a **config.rb** file in your sass stylesheets directory.
 {% highlight ruby %}
 project_type = :stand_alone
 css_dir = 'css'
 sass_dir = 'src'
 {% endhighlight %}
 
-#### Usage
+### Usage
+
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} assets:compile_compass
 {% endhighlight %}
 
-#### Output
-The task outputs the compiled CSS file/s in the configured directory from the config.rb file.
+### Output
 
-### add_htpasswd
-Adds .htpasswd file to assets folder. Enter name and password which access the asset directory.
+The task outputs the compiled CSS file/s in the configured directory from the **config.rb** file.
 
-#### Usage
+## add_htpasswd
+Adds **.htpasswd** file to assets folder. Enter name and password which access the asset directory.
+
+### Usage
+
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} assets:add_htpasswd
 {% endhighlight %}
 
-#### Output
+### Output
+
 The **.htpasswd** file is stored in **htdocs/shared/**.
 Password protection for assets directory.

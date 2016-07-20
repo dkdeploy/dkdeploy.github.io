@@ -7,9 +7,7 @@ layout: default
 
 ## set_owner_group
 
-Set standard defined owner and group on the shared and release path
-
-This task performs the tasks `:set_owner_group_of_shared_path` and `:set_owner_group_of_release_path` of
+Sets owner and group of the shared and release path. This task invokes **set_owner_group_of_shared_path** and **set_owner_group_of_release_path**.
 
 #### Usage
 
@@ -19,11 +17,11 @@ $ cap {{site.data.constants.deploy.stage}} file_access:set_owner_group
 
 #### Output
 
-See outputs in tasks `:set_owner_group_of_shared_path` and `:set_owner_group_of_release_path`
+See outputs in tasks **set_owner_group_of_shared_path** and **set_owner_group_of_release_path**.
 
 ## set_owner_group_of_shared_path
 
-Set standard defined owner and group on the shared path
+Sets owner and group of the shared path.
 
 #### Configuration
 
@@ -47,22 +45,22 @@ $ sudo chown {{site.data.constants.deploy.user}}:{{site.data.constants.deploy.gr
 
 ## set_owner_group_of_release_path
 
-Set recursively standard defined owner and group on the release path
+Set owner and group of the release path recursively.
 
-#### Configuration
+### Configuration
 
 {% highlight ruby %}
 set :default_file_access_owner_of_release_path, "{{site.data.constants.deploy.user}}"
 set :default_file_access_group_of_release_path, "{{site.data.constants.deploy.group}}"
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} file_access:set_owner_group_of_release_path
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell %}
 $ sudo chown -R {{site.data.constants.deploy.user}}:{{site.data.constants.deploy.group}} [project_path]/releases
@@ -70,37 +68,37 @@ $ sudo chown -R {{site.data.constants.deploy.user}}:{{site.data.constants.deploy
 
 ## set_permissions
 
-Set standard defined file permissions on the shared and release path
+Sets file permissions of the shared and release path.
 
-This task performs the tasks `:set_permissions_of_shared_path` and `:set_permissions_of_release_path` of
+This task invokes **set_permissions_of_shared_path** and **set_permissions_of_release_path**.
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} file_access:set_permissions
 {% endhighlight %}
 
-#### Output
+### Output
 
-See outputs in tasks `:set_permissions_of_shared_path` and `:set_permissions_of_release_path`
+See outputs in tasks **set_permissions_of_shared_path** and **set_permissions_of_release_path**.
 
 ## set_permissions_of_shared_path
 
-Set standard defined file permissions on the shared path
+Sets file permissions of the shared path.
 
-#### Configuration
+### Configuration
 
 {% highlight ruby %}
 set :default_file_access_mode_of_shared_path, "u+rwx,g+rx,g-w,o-rwx"
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} file_access:set_permissions_of_shared_path
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell %}
 $ sudo chmod u+rwx,g+rx,g-w,o-rwx [project_path]/shared
@@ -108,21 +106,21 @@ $ sudo chmod u+rwx,g+rx,g-w,o-rwx [project_path]/shared
 
 ## set_permissions_of_release_path
 
-Set recursively standard defined file permissions on the release path
+Sets file permissions recursively of the release path.
 
-#### Configuration
+### Configuration
 
 {% highlight ruby %}
 set :default_file_access_mode_of_release_path, "u+rwx,g+rx,g-w,o-rwx"
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} file_access:set_permissions_of_release_path
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell %}
 $ sudo chmod -R u+rwx,g+rx,g-w,o-rwx [project_path]/releases

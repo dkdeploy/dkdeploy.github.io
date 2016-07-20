@@ -8,7 +8,7 @@ layout: wide
 
 Most **dkdeploy** tasks can be customized. You can set variables the following ways (example here: task `db:dump_table`):
 
-1. Either set the variable `dump_table` in your deploy.rb (recommended for most settings):
+1. Either set the variable `:dump_table` in your deploy.rb (recommended for most settings):
 
 {% highlight ruby %}
 set :dump_table, "dumpable_table_name"
