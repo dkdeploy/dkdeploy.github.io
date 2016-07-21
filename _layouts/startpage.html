@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-  <body style="" class="startpage">
+  <body class="startpage">
     <div id="content" class="row">
       {% include header.html %}
       <div id="startpage-container" class="row hero-cards" data-equalize-on="large" data-equalizer>
@@ -39,10 +39,17 @@
           </div>
         </div>
       </div>
+      <input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search in this site..." />
+    
+        <div class="algolia__initial-content js-algolia__initial-content"></div>
+          <div class="algolia__search-content js-algolia__search-content" style="background: #fff">
+             <h2 class="page-title">Search</h2>
+              <div class="posts algolia__results"></div>
+          </div>
+        </div>
+
     </div>
-    <div style="display: none">
-      {{ content }}
-    </div>
+    
     {% include footer.html %}
   </div>
   

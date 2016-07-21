@@ -12,7 +12,11 @@ description: dkdeploy documentation
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000/" # the base hostname & protocol for your site
 twitter_username: dkd_de
-github_username:  dkdeploy
+github_username:  KieranHayes
 exclude: [foundation, vendor]
 # Build settings
 markdown: kramdown
+algolia:
+  application_id: 'QOFNLOOCWH'
+  index_name:     'dkdeploy_dev'
+  record_css_selector: 'p,ul,td,th,h3,code'
