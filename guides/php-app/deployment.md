@@ -133,7 +133,7 @@ set :remote_web_root_path, 'web'
 cap dev php:clear_opcache
 {% endhighlight %}
 
-#### Output
+### Output
 
 {% highlight shell-session%}
 00:00 php:clear_opcache
@@ -154,7 +154,3 @@ In our **deploy.rb** we add the following lines:
 after 'deploy:finished', 'php:clear_opcache'
 {% endhighlight %}
 
-
-## Customizing group and file permissions
-
-## 

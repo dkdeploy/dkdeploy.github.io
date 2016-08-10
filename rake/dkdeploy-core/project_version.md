@@ -7,29 +7,28 @@ layout: default
 
 ## update
 
-Update Version file on server
+Updates Version file on server. The file "Version" is required.
 
-The file "Version" is requered.
+### Configuration
 
-#### Configuration
-
-Use `:version_file_path` add new path for file "Version".
+Use `:version_file_path` to add a new path for the file "Version".
 
 {% highlight ruby %}
 set :version_file_path, "version_file_directory"
 {% endhighlight %}
 
-#### Usage
+### Usage
 
 {% highlight shell %}
 $ cap {{site.data.constants.deploy.stage}} project_version:update
 {% endhighlight %}
 
+### Output
 
-#### Output
+{% highlight shell-session %}
+1.0.0
+{% endhighlight %}
 
-`1.0.0`
+### Additional information
 
-#### Additional information
-
-The version of the project can be re-created, updated or moved
+The version of the project can be re-created, updated or moved.

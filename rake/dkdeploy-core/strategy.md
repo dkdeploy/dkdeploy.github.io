@@ -23,7 +23,7 @@ $ cap {{site.data.constants.deploy.stage}} copy:create_release
 
 ### Requirements
 
-* `tar` needs to be installed on both machines.
+* **tar** needs to be installed on both machines.
 * SSH config that enables SSH connection to the server.
 
 ### Output
@@ -51,8 +51,6 @@ Example output
       06 rm -f /tmp/test_app/test_app_20160610-8620-14wmv1u.tar.gz
     ✔ 06 {{site.data.constants.deploy.user}}@{{site.data.constants.deploy.host}} 0.004s
 {% endhighlight %}
-
-
 
 ## set_current_revision
 
