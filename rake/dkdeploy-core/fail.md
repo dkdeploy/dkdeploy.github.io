@@ -9,7 +9,7 @@ layout: default
 
 Raises internal failure condition.
 
-#### Usage
+### Usage
 
 Use this function within your own ruby tasks to raise errors during the execution.
 
@@ -21,7 +21,7 @@ end
 {% endhighlight %}
 
 
-#### Output
+### Output
 
 The output will be the provided errors.<br/>
 The deployment will be aborted.

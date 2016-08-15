@@ -553,3 +553,11 @@ $fi-path: "/assets/fonts/foundation" !default;
 $g1: #bddb06; //#64b3f4
 $g2: #6D7500; //#c2e59c
 $gradient_style: 45deg; // to left
+
+$foundation-palette: (
+  primary: #97af05,
+  secondary: #777,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #ec5840,
+) !default;
