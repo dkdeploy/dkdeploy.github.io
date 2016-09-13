@@ -6,7 +6,6 @@ body.startpage {
   .callout.large.primary {
     background: none;
     border-radius: $global-radius;
-    //background-color: rgba(255, 255, 255, 0.9);
     padding-top: 1rem;
     padding-bottom: 1rem;
     @include breakpoint(small only) {
