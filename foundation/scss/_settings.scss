@@ -65,7 +65,7 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 3px;
 $global-text-direction: ltr;
 
 // 2. Breakpoints
@@ -117,7 +117,7 @@ $header-sizes: (
     'h6': 13,
   ),
 );
-$header-color: inherit;
+$header-color: rgba(72, 39, 24, 1.0); //#2D2115;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;

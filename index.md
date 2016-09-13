@@ -1,6 +1,6 @@
 ---
 layout: startpage
-title: "dkdeploy - A Powerful Extension to Capistrano"
+title: " A Powerful Extension to Capistrano."
 ---
 
 **dkdeploy** consists currently mainly of four Rubygems:

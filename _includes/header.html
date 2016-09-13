@@ -8,7 +8,7 @@
       <div class="top-bar show-for-medium" >
         <div class="top-bar-left">
           <ul class="medium-horizontal menu">
-            <li class="menu-text"><a href="{{ site.url }}">dkdeploy</a></li>
+            <li class="menu-text"><a href="{{ site.url }}"><img title="dkdeploy" alt="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg"></a></li>
             {% for nav in site.data.navigation %}
               {% if page.section == nav.section %}
                 {% assign active = "active" %}
@@ -24,7 +24,7 @@
     </div>
   </div> <!-- end sticky-container -->
   <ul id="mobile-navigation" class="hide-for-medium vertical menu" data-responsive-menu="small-dropdown">
-    <li class="menu-text"><a href="/">dkdeploy</a></li>
+    <li class="menu-text"><a href="/"><img style="height: 24px; margin-left: -17px" src="/assets/images/3056-73126-dkdeploy-logo.svg"></a></li>
     {% for nav in site.data.navigation %}
       {% if page.section == nav.section %}
         {% assign active = "active" %}
@@ -36,7 +36,12 @@
   </ul>
 </header>
 <div class="callout large primary">
-  <div class="row column">
-    <h1>{{ page.title || "No Title"}}</h1>
-  </div>
+    {% if page.layout == 'startpage' } %}
+      <div class="logo-wrapper">
+        <img title="dkdeploy" alt="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg">
+      </div>
+      <h1><span>{{ page.title }}</span></h1>
+    {% else %}
+      <h1>{{ page.title || "No Title"}}</h1>
+    {% endif %}
 </div>
