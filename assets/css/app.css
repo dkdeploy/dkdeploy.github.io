@@ -1742,7 +1742,7 @@ label {
   .input-group > :last-child > * {
     border-radius: 0 3px 3px 0; }
 
-.input-group-label, .input-group-field, .input-group-button {
+.input-group-label, .input-group-field, #js-toc select, .input-group-button {
   margin: 0;
   white-space: nowrap;
   display: table-cell;
@@ -1762,7 +1762,7 @@ label {
   .input-group-label:last-child {
     border-left: 0; }
 
-.input-group-field {
+.input-group-field, #js-toc select {
   border-radius: 0;
   height: 2.5rem; }
 
@@ -3502,7 +3502,7 @@ table.hover tr:nth-of-type(even):hover {
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }
-  .top-bar .input-group-field {
+  .top-bar .input-group-field, .top-bar #js-toc select, #js-toc .top-bar select {
     width: 100%;
     margin-right: 0; }
   .top-bar input.button {
@@ -5193,6 +5193,9 @@ table.hover tr:nth-of-type(even):hover {
 @media screen and (max-width: 39.9375em) {
   #mobile-navigation {
     background: #fff; }
+    #mobile-navigation img.logo {
+      height: 24px;
+      margin-left: -17px; }
   .top-bar-left .menu li a {
     width: 100%;
     margin: 0; } }
@@ -5377,6 +5380,20 @@ ul.menu li.active {
 
 #content .hollow, #content .top-bar-left .menu > li a, .top-bar-left .menu > li #content a {
   border-radius: 3px; }
+
+#js-toc select {
+  border-radius: 3px; }
+
+#js-toc .input-group-label {
+  color: #737373;
+  background-color: transparent;
+  border: 0; }
+
+.header .input-group {
+  margin-bottom: 0; }
+
+.callout {
+  border-radius: 0; }
 
 .accordion-title {
   font-size: 1.125rem; }
@@ -6474,6 +6491,8 @@ body.startpage {
         border-radius: 0; } }
     body.startpage .inner h3 {
       margin-top: 0; }
+  body.startpage .top-bar-right {
+    display: none; }
   body.startpage .hero-content {
     color: #fff;
     background: rgba(255, 255, 255, 0.3);
@@ -6724,3 +6743,112 @@ td code.highlighter-rouge {
 
 .highlighter-rouge .highlight {
   padding: 0.5rem; }
+
+/* Search form */
+.algolia__input {
+  margin-bottom: 1rem;
+  font-size: 20px;
+  padding: .25rem .5rem; }
+
+/* Search results container */
+.algolia__initial-content {
+  display: block; }
+
+.algolia__initial-content--hidden {
+  display: none; }
+
+.algolia__search-content {
+  display: none; }
+
+.algolia__search-content--active {
+  display: block; }
+
+/* Search results */
+.algolia__result {
+  margin-bottom: 1rem; }
+
+.algolia__result-link {
+  font-size: 1.25rem;
+  font-weight: bold; }
+
+.algolia__result-date {
+  font-size: 0.8rem; }
+
+.algolia__result-text {
+  font-size: 0.9rem; }
+
+.algolia__result-link .algolia__result-highlight {
+  background-color: #ffff99; }
+
+.algolia__result-text .algolia__result-highlight {
+  font-weight: bold;
+  background: #ffff99; }
+
+/* Theming */
+.theme-base-08 .algolia__result-link .algolia__result-highlight {
+  background-color: #EED9D9;
+  background-color: rgba(172, 65, 66, 0.2); }
+
+.theme-base-09 .algolia__result-link .algolia__result-highlight {
+  background-color: #F6E6DA;
+  background-color: rgba(210, 132, 69, 0.2); }
+
+.theme-base-0a .algolia__result-link .algolia__result-highlight {
+  background-color: #FDF2E3;
+  background-color: rgba(244, 191, 117, 0.2); }
+
+.theme-base-0b .algolia__result-link .algolia__result-highlight {
+  background-color: #E9EEDE;
+  background-color: rgba(144, 169, 89, 0.2); }
+
+.theme-base-0c .algolia__result-link .algolia__result-highlight {
+  background-color: #E3F0EE;
+  background-color: rgba(117, 181, 170, 0.2); }
+
+.theme-base-0d .algolia__result-link .algolia__result-highlight {
+  background-color: #E1ECF0;
+  background-color: rgba(106, 159, 181, 0.2); }
+
+.theme-base-0e .algolia__result-link .algolia__result-highlight {
+  background-color: #EEE3EC;
+  background-color: rgba(170, 117, 159, 0.2); }
+
+.theme-base-0f .algolia__result-link .algolia__result-highlight {
+  background-color: #E9DDD6;
+  background-color: rgba(143, 85, 54, 0.2); }
+
+.input-group-algolia {
+  transition: background-color 0.3s ease-out;
+  background-color: #fff; }
+  .input-group-algolia .input-group-label {
+    border: 0;
+    background: none;
+    padding-right: 0;
+    color: #737373; }
+  .input-group-algolia input {
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+    max-width: 140px; }
+    .input-group-algolia input:focus {
+      border: 0;
+      box-shadow: none;
+      background-color: transparent; }
+
+.algolia span {
+  font-weight: normal;
+  color: #737373;
+  float: right;
+  font-size: 0.8em; }
+
+.algolia img {
+  height: 20px; }
+
+.input-group-algolia-focus {
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease-out;
+  border-radius: 3px; }
+
+.algolia__result,
+.algolia__result-text {
+  overflow-wrap: break-word; }

@@ -35,3 +35,24 @@ ul.menu li.active {
     border-radius: 3px;
   }
 }
+
+#js-toc {
+  select {
+    @extend .input-group-field;
+    border-radius: $global-radius;
+  }
+  .input-group-label {
+    color: #737373;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.header {
+  .input-group {
+    margin-bottom: 0;
+  }
+}
+.callout {
+  border-radius: 0;
+}
