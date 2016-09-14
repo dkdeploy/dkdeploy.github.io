@@ -16,3 +16,7 @@ github_username:  dkdeploy
 exclude: [foundation, vendor]
 # Build settings
 markdown: kramdown
+algolia:
+  application_id: 'QOFNLOOCWH'
+  index_name:     'dkdeploy_production'
+  record_css_selector: 'p,ul,td,th,h3,code'

@@ -8,7 +8,7 @@
       <div class="top-bar show-for-medium" >
         <div class="top-bar-left">
           <ul class="medium-horizontal menu">
-            <li class="menu-text"><a href="{{ site.url }}">dkdeploy</a></li>
+            <li class="menu-text"><a href="{{ site.url }}"><img title="dkdeploy" alt="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg"></a></li>
             {% for nav in site.data.navigation %}
               {% if page.section == nav.section %}
                 {% assign active = "active" %}
@@ -19,12 +19,31 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="top-bar-right" id="js-toc"></div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li>
+              <div class="input-group" id="js-toc">
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li>
+              <div class="input-group input-group-algolia">
+                <span class="input-group-label"><i class="fa fa-search" aria-hidden="true"></i>
+</span>
+<input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search ..." />
+              </div>
+            </li>
+          </ul>
+        </div>
+        
       </div>
     </div>
   </div> <!-- end sticky-container -->
   <ul id="mobile-navigation" class="hide-for-medium vertical menu" data-responsive-menu="small-dropdown">
-    <li class="menu-text"><a href="/">dkdeploy</a></li>
+    <li class="menu-text"><a href="/"><img class="logo" alt="dkdeploy" title="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg"></a></li>
     {% for nav in site.data.navigation %}
       {% if page.section == nav.section %}
         {% assign active = "active" %}
@@ -36,7 +55,12 @@
   </ul>
 </header>
 <div class="callout large primary">
-  <div class="row column">
-    <h1>{{ page.title || "No Title"}}</h1>
-  </div>
+    {% if page.layout == 'startpage' } %}
+      <div class="logo-wrapper">
+        <img title="dkdeploy" alt="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg">
+      </div>
+      <h1><span>{{ page.title }}</span></h1>
+    {% else %}
+      <h1>{{ page.title || "No Title"}}</h1>
+    {% endif %}
 </div>
