@@ -2,7 +2,7 @@
   <div class="row">
     <div class="large-12 columns">
       <div class="footer-content">
-        <p>&copy 2016 <a href="https:/www.dkd.de/">dkd Internet Service GmbH</a> <i class="fi-heart animated"></i> <a href="mailto:opensource@dkd.de">opensource@dkd.de</a></p>
+        <p>&copy; 2016 <a href="https://www.dkd.de/">dkd Internet Service GmbH</a> <i class="fi-heart animated"></i> <a href="mailto:opensource@dkd.de">opensource@dkd.de</a></p>
       </div>
     </div>
   </div>
@@ -10,7 +10,7 @@
 <script>
   window.ALGOLIA_CONFIG = {
     'applicationId': 'QOFNLOOCWH',
-    'indexName': 'dkdeploy_dev',
+    'indexName': 'dkdeploy_production',
     'apiKey': 'e51022a00302b50ec0f0fe226c460d5e',
     'baseurl': ''
   }
@@ -33,12 +33,19 @@
 <script src="//cdn.jsdelivr.net/hogan.js/3.0.2/hogan.min.js"></script>
 <script src="//cdn.jsdelivr.net/momentjs/2.10.3/moment.min.js"></script>
 <script src="{{ site.baseurl }}/assets/javascript/algolia.js"></script>
-
+<script src="https://use.fontawesome.com/b5dbc25dd5.js"></script>
 <script type="text/javascript" src="{{ '/assets/javascript/toc2select.js' | prepend: site.url }}" defer></script>
 <script type="text/javascript">
   $(document).ready(function(){
     $(document).foundation();
-    var toc2select = new DkdeployApp.Classes.toc2select("#main-content", "#js-toc", "<span class='toc-label'>Jump to</span>");
+    var toc2select = new DkdeployApp.Classes.toc2select("#main-content", "#js-toc", '<span class="input-group-label"><i class="fa fa-anchor" aria-hidden="true"></i></span>');
     toc2select.render()
+    
+    // Search
+    $('.input-group-algolia input').on('focus', function(){
+      $('.input-group-algolia').addClass("input-group-algolia-focus");
+    }).on('focusout', function(){
+      $('.input-group-algolia').removeClass('input-group-algolia-focus');
+    });
   })
 </script>

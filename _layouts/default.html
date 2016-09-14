@@ -5,11 +5,8 @@
   <div id="content" class="row">
     {% include header.html %}
     <div class="large-3 sidebar columns">
-      <input type="text" class="algolia__input js-algolia__input" autocomplete="off" name="query" placeholder="Search in this site..." />
-      
       <ul class="vertical menu docs-menu nav1">
         {% assign current_path = page.url %}
-
         {% for nav in site.data.navigation %}
           {% if page.section == nav.section %}
             {% capture current_nav %}{{nav.href}}{% endcapture %}
@@ -18,7 +15,6 @@
             {% else %}
               {% assign active = "" %}
             {% endif %}
-
             <li class="docs-menu-title {{active}}">
               <a href="{{nav.href}}">{{nav.title}}</a>
               {% if nav.subnav2 != empty %}
@@ -34,7 +30,7 @@
       <div id="main-content" class="large-9 main-content columns">
         <div class="algolia__initial-content js-algolia__initial-content">{{ content }}</div>
           <div class="algolia__search-content js-algolia__search-content">
-             <h2 class="page-title">Search</h2>
+             <h3 class="page-title algolia">Search Results <span>powered by <a href="https://algolia.com/"><img alt="Algolia Search" title="Algolia Search" src="/assets/images/Algolia_logo_bg-white.svg"></a></span></h3>
               <div class="posts algolia__results"></div>
           </div>
         </div>

@@ -34,8 +34,7 @@
   font-size: 0.9rem;
 }
 .algolia__result-link .algolia__result-highlight {
-  background-color:#D3E8F6;
-  background-color: rgba(38,139,210,0.2);
+  background-color: #ffff99;
 }
 .algolia__result-text .algolia__result-highlight {
   font-weight:bold;
@@ -74,4 +73,49 @@
 .theme-base-0f .algolia__result-link .algolia__result-highlight {
   background-color: #E9DDD6; 
   background-color: rgba(143,85,54,0.2);
+}
+
+.input-group-algolia {
+  transition: background-color 0.3s ease-out;
+  background-color: #fff;
+  .input-group-label {
+    border: 0;
+    background: none;
+    padding-right: 0;
+    color: #737373;
+  }
+  input {
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+    max-width: 140px;
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+}
+
+.algolia {
+  span {
+    font-weight: normal;
+    color: #737373;
+    float: right;
+    font-size: 0.8em;
+  }
+  img {
+    height: 20px;
+  }
+}
+
+.input-group-algolia-focus {
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease-out;
+  border-radius: $global-radius;
+}
+
+.algolia__result,
+.algolia__result-text {
+  overflow-wrap: break-word;
 }
