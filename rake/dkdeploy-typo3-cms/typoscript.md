@@ -49,31 +49,49 @@ when %r{(Configuration/TypoScript/Constants/Stages/config\.dev\.txt|Configuratio
 
 ## upload\_pagets
 
-### Configuration
-
-TODO
-
-### Usage
-
-TODO
-
-### Output
-
-TODO
-
-## merge\_configs
+Uploads PageTS files from local paths prefixed by variable `copy_source`
 
 ### Configuration
 
-TODO
+Here is an example for a multistage pagets.
+
+{% highlight ruby %}
+set :typoscript_pagets_paths, 'typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf'
+{% endhighlight %}
+
+For a stage specific file name set the variable like this:
+
+{% highlight ruby %}
+set :typoscript_pagets_file, 'PageTS.#{fetch(:stage)}.txt' 
+{% endhighlight %}
+
+If the parent folder from `typoscript_pagets_paths` on your local environment differ from `htdocs` then it must
+be configured:
+
+{% highlight ruby %}
+set :copy_source, 'custom_htdocs_folder' 
+{% endhighlight %}
 
 ### Usage
 
-TODO
+You would usually use this task during development and deployment:
+
+{% highlight shell-session %}
+  cap <stage> typo3:cms:typoscript:upload_pagets
+{% endhighlight %}
+
 
 ### Output
 
-TODO
+{% highlight shell-session %}
+00:00 typo3:cms:typoscript:upload_pagets
+      01 mkdir -p /var/www/typo3-cms-standard/htdocs/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf
+    ✔ 01 vagrant@192.168.156.14 4.011s
+      Uploading htdocs/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt to /var/www/typo3-cms-standard/htdocs/current/typo3conf/ext/dkd_customer/Configuration/TypoScript/TSConf/PageTS.txt...
+      Uploading htdocs/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt 100.0%
+      Uploaded htdocs/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt to /var/www/typo3-cms-standard/htdocs/current/typo3conf/ext/dkd_customer/Configuration/TypoScript/TSConf/PageTS.txt.
+{% endhighlight %}
+
 
 ## merge\_pagets
 
