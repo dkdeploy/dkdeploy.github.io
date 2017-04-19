@@ -5,8 +5,6 @@ section: "rake"
 layout: default
 ---
 
-* TOC
-{:toc}
 
 ## clear\_typo3temp
 
