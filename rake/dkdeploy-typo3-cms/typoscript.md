@@ -92,6 +92,50 @@ You would usually use this task during development and deployment:
       Uploaded htdocs/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt to /var/www/typo3-cms-standard/htdocs/current/typo3conf/ext/dkd_customer/Configuration/TypoScript/TSConf/PageTS.txt.
 {% endhighlight %}
 
+## merge\_configs
+
+Merge remote, stage specific TypoScript configuration into a project-wide configuration file.
+
+### Configuration
+
+Here is an example for a multi-stage TypoScript configuration:
+
+{% highlight ruby %}
+set :typoscript_config_paths, 'typo3conf/ext/customer_extension/Configuration/TypoScript/Config'
+{% endhighlight %}
+The configured path should have a `Stages` sub-directory with stage-specific configuration files.
+
+Example: `customer_extension/Configuration/Typoscript/Config/Stages/config.#{fetch(:stage)}.txt`
+If this path or `config.#{fetch(:stage)}.txt` does not exist, the task will be skipped for this path.
+
+A project-wide configuration file with the default filename `config.txt` is created, this name can be configured:
+
+{% highlight ruby %}
+set :typoscript_config_file, 'filename.txt'
+{% endhighlight %}
+
+### Usage
+
+ {% highlight shell-session %}
+ cap <stage> typo3:cms:typoscript:merge_configs[:typoscript_config_paths,:typoscript_config_file]
+ {% endhighlight %}
+ This task is called by merge_config_in_base_path, so you may not need to call it yourself.
+
+### Output
+{% highlight shell-session %}
+cap dev typo3:cms:typoscript:merge_configs["typo3conf/ext/dkdeploy/res/demo1/typoscript/constants typo3conf/ext/dkdeploy/res/demo2/typoscript/constants"]
+00:00 typo3:cms:typoscript:merge_configs
+      01 echo '' >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo1/typoscript/constants/config.txt
+    ✔ 01 vagrant@dkdeploy-typo3-cms.dev 0.007s
+      02 cat /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo1/typoscript/constants/Stages/config.dev.txt >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo1/typoscript/constants/config.txt
+    ✔ 02 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      Merged /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo1/typoscript/constants/Stages/config.dev.txt with /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo1/typoscript/constants/config.txt.
+      03 echo '' >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo2/typoscript/constants/config.txt
+    ✔ 03 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      04 cat /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo2/typoscript/constants/Stages/config.dev.txt >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo2/typoscript/constants/config.txt
+    ✔ 04 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      Merged /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo2/typoscript/constants/Stages/config.dev.txt with /var/www/dkdeploy/current/typo3conf/ext/dkdeploy/res/demo2/typoscript/constants/config.txt.
+{% endhighlight %}
 
 ## merge\_pagets
 
@@ -102,6 +146,41 @@ TODO
 ### Usage
 
 TODO
+
+### Output
+
+TODO
+
+## merge\_config\_in\_base\_path
+
+Merges all stage-specific remote config files in a given base path into a project-wide configuration file by calling `merge_configs`.
+
+### Configuration
+
+Variables:
+
+{% highlight ruby %}
+:typoscript_config_base_path
+:typoscript_config_file
+{% endhighlight %}
+
+The default for `:typoscript_config_file` is `config.txt`, but may be modified:
+
+{% highlight ruby %}
+set :typoscript_config_file, 'filename.txt'
+{% endhighlight %}
+
+The default for :typoscript_config_base_path` is .`, but may be modified:
+
+{% highlight ruby %}
+set :typoscript_config_base_path, 'customer_extension'
+{% endhighlight %}
+
+### Usage
+
+{% highlight shell-session %}
+cap <stage> typo3:cms:typoscript:merge_config_in_base_path[:typoscript_config_base_path,:typoscript_config_file]
+{% endhighlight %}
 
 ### Output
 
