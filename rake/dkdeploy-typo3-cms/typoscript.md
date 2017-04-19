@@ -77,14 +77,61 @@ TODO
 
 ## merge\_pagets
 
+Merge remote stage specific PageTS file into project-wide PageTS file.
+
+
 ### Configuration
 
-TODO
+Here is an example for a multistage PageTs:
+
+{% highlight ruby %}
+set :typoscript_pagets_paths, 'typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf'
+{% endhighlight %}
+
+The configured paths should have a `Stages` sub-directory with stage specific PageTs files. 
+
+Example: `dkdeploy_extension/Configuration/TypoScript/TSConf/Stages/PageTS.<StageName>.txt`
+
+If path or `PageTS.<StageName>.txt` does not exists, task will be skipped for this path.
+
+And a project-wide PageTS file with a default filename `PageTS.txt`. 
+
+You can configure your own filename:
+
+{% highlight ruby %}
+set :typoscript_pagets_file, 'filename.txt' 
+{% endhighlight %}
+
+
+If project-wide PageTS does not exists, it will be created.
+
+
+
 
 ### Usage
 
-TODO
+You would usually use this task during development and deployment:
+
+{% highlight shell-session %}
+  cap <stage> typo3:cms:typoscript:merge_pagets
+{% endhighlight %}
+
+It is recommended to upload pagets before:
+
+{% highlight shell-session %}
+  cap <stage> typo3:cms:typoscript:upload_pagets
+{% endhighlight %}
+
+
 
 ### Output
 
-TODO
+{% highlight shell-session %}
+cap dev typo3:cms:typoscript:merge_pagets["typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf"]
+00:00 typo3:cms:typoscript:merge_pagets
+      01 echo '' >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt
+    ✔ 01 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      02 cat /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/Stages/PageTS.dev.txt >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt
+    ✔ 02 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      Merged /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/Stages/PageTS.dev.txt with /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt.
+{% endhighlight %}
