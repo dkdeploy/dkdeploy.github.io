@@ -47,9 +47,9 @@ when %r{(Configuration/TypoScript/Constants/Stages/config\.dev\.txt|Configuratio
       Uploaded htdocs/typo3conf/ext/dkd_customer/Configuration/TypoScript/Constants/config.txt to /var/www/typo3-cms-standard/htdocs/current/typo3conf/ext/dkd_customer/Configuration/TypoScript/Constants/config.txt.
 {% endhighlight %}
 
-## upload\_pagets
+## upload\_
 
-Uploads PageTS files from local paths prefixed by variable `copy_source`
+Uploads PageTS files from local paths prefixed by variable `copy_source`.
 
 ### Configuration
 
@@ -105,7 +105,12 @@ set :typoscript_config_paths, 'typo3conf/ext/customer_extension/Configuration/Ty
 {% endhighlight %}
 The configured path should have a `Stages` sub-directory with stage-specific configuration files.
 
-Example: `customer_extension/Configuration/Typoscript/Config/Stages/config.#{fetch(:stage)}.txt`
+Example:
+
+{% highlight ruby %}
+customer_extension/Configuration/Typoscript/Config/Stages/config.#{fetch(:stage)}.txt
+{% endhighlight %}
+
 If this path or `config.#{fetch(:stage)}.txt` does not exist, the task will be skipped for this path.
 
 A project-wide configuration file with the default filename `config.txt` is created, this name can be configured:
@@ -119,6 +124,7 @@ set :typoscript_config_file, 'filename.txt'
  {% highlight shell-session %}
  cap <stage> typo3:cms:typoscript:merge_configs[:typoscript_config_paths,:typoscript_config_file]
  {% endhighlight %}
+ 
  This task is called by merge_config_in_base_path, so you may not need to call it yourself.
 
 ### Output
@@ -155,7 +161,51 @@ TODO
 
 Merges all stage-specific remote config files in a given base path into a project-wide configuration file by calling `merge_configs`.
 
+Merge remote stage specific PageTS file into project-wide PageTS file.
+
+
 ### Configuration
+
+
+Here is an example for a multistage PageTs:
+
+{% highlight ruby %}
+set :typoscript_pagets_paths, 'typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf'
+{% endhighlight %}
+
+The configured paths should have a `Stages` sub-directory with stage specific PageTs files. 
+
+Example: 
+
+{% highlight ruby %}
+dkdeploy_extension/Configuration/TypoScript/TSConf/Stages/PageTS.<StageName>.txt
+{% endhighlight %}
+
+If path or `PageTS.<StageName>.txt` does not exists, task will be skipped for this path.
+
+And a project-wide PageTS file with a default filename `PageTS.txt`. 
+
+You can configure your own filename:
+
+{% highlight ruby %}
+set :typoscript_pagets_file, 'filename.txt' 
+{% endhighlight %}
+
+If project-wide PageTS does not exists, it will be created.
+
+### Usage
+
+You would usually use this task during development and deployment:
+
+{% highlight shell-session %}
+  cap <stage> typo3:cms:typoscript:merge_pagets
+{% endhighlight %}
+
+It is recommended to upload pagets before:
+
+{% highlight shell-session %}
+  cap <stage> typo3:cms:typoscript:upload_pagets
+{% endhighlight %}
 
 Variables:
 
@@ -170,7 +220,7 @@ The default for `:typoscript_config_file` is `config.txt`, but may be modified:
 set :typoscript_config_file, 'filename.txt'
 {% endhighlight %}
 
-The default for :typoscript_config_base_path` is .`, but may be modified:
+The default for `:typoscript_config_base_path`  is `\.`, but may be modified:
 
 {% highlight ruby %}
 set :typoscript_config_base_path, 'customer_extension'
@@ -182,6 +232,15 @@ set :typoscript_config_base_path, 'customer_extension'
 cap <stage> typo3:cms:typoscript:merge_config_in_base_path[:typoscript_config_base_path,:typoscript_config_file]
 {% endhighlight %}
 
+
 ### Output
 
-TODO
+{% highlight shell-session %}
+cap dev typo3:cms:typoscript:merge_pagets["typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf"]
+00:00 typo3:cms:typoscript:merge_pagets
+      01 echo '' >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt
+    ✔ 01 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      02 cat /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/Stages/PageTS.dev.txt >> /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt
+    ✔ 02 vagrant@dkdeploy-typo3-cms.dev 0.005s
+      Merged /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/Stages/PageTS.dev.txt with /var/www/dkdeploy/current/typo3conf/ext/dkdeploy_extension/Configuration/TypoScript/TSConf/PageTS.txt.
+{% endhighlight %}
