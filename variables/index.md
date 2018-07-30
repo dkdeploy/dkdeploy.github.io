@@ -30,6 +30,9 @@ If none of the above is true, most tasks will fall back to a text dialogue (unde
 
 ### List of variables
 
+#### Core
+
+
 |**Variable Name** (as symbol)|**Type**|**Default Value**|**Description**|
 |`:scm`|Symbol|`:copy`|Capistrano Source Control System. Possible Values: `:git`, `:hg`, `:svn`, `:copy`|
 |`:copy_source`|String|`'htdocs'`|Directory, which gets copied onto target server. Example: `'.'`, `'htdocs'`, `'htdocs/sub_dir'`. *Note:* This configuration is only required for the copy strategy  (`:copy`).|
@@ -50,6 +53,22 @@ If none of the above is true, most tasks will fall back to a text dialogue (unde
 |`:custom_file_access`|Hash|`{}`|Custom File Permissions (see complex sample below)|
 |`:bower_path`|String|Fetched from `:copy_source` variable|Directory to be used with `bower`|
 |`:bower_paths`|String|Fetched as an array from `:copy_source` variable|Directories to be used with `bower` and the `run_all` task. Note: do not write multiple directories in `:copy_source` variable|
+
+#### typo3-cms
+
+|**Variable Name** (as symbol)|**Type**|**Default Value**|**Description**|
+|`:typoscript_userts_file`|String|`'UserTS.txt'`| |
+|`:typoscript_pagets_file`|String|`'PageTS.txt'`| |
+|`:typoscript_config_file`|String|`'false'`| Should be `true` or `false` |
+|`:create_new_caretaker_keys`|String|`'UserTS.txt'`| |
+|`:caretaker_public_key_path`|String|`"#{shared_path}/config/pubkey.pem"`| |
+|`:caretaker_private_key_path`|String|`"#{shared_path}/config/privkey.pem"`|  |
+|`:create_caretaker_instance_keys_template`|String|Template is inside the gem in `vendor` dir | The path where an `ERB` template file is located. You could customize this, but is not advised |
+|`:create_caretaker_instance_keys_path`|String|`"#{shared_path}/config/create_caretaker_instance_keys.php"`| Path on the server for php file that creates caretaker keys |
+|`:caretaker_instance_keys_path`|String|`"#{shared_path}/config/create_caretaker_instance_keys.php"`| |
+|`:typo3_environment_cli`|Hash|`{ TYPO3_COMPOSER_AUTOLOAD: 1, TERM: 'screen-256color' }`| |
+|`:path_to_typo3_console`|String|`'bin/typo3cms'`| Path to typo3_console. Relative path to typo3_console script |
+
 
 ### Sample for `customer_file_access`
 

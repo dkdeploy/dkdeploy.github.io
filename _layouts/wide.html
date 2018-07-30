@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 {% include head.html %}
-<body>
-
-  <div id="content" class="row">
-    {% include header.html %}
-    <div class="large-12 main-content columns hero-content">
-      <div id="main-content" class="large-9 main-content columns">
-        <div class="algolia__initial-content js-algolia__initial-content">{{ content }}</div>
-        <div class="algolia__search-content js-algolia__search-content">
-          <h3 class="page-title algolia">Search Results <span>powered by <a href="https://algolia.com/"><img alt="Algolia Search" title="Algolia Search" src="/assets/images/Algolia_logo_bg-white.svg"></a></span></h3>
-          <div class="posts algolia__results"></div>
+  <body>
+  
+    <div id="content" class="row">
+      {% include header.html %}
+      <div class="large-12 main-content columns hero-content">
+        <div id="main-content" class="large-12 main-content columns">
+          <div class="algolia__initial-content js-algolia__initial-content">{{ content }}</div>
+          <div class="algolia__search-content js-algolia__search-content">
+            <h3 class="page-title algolia">Search Results <span>powered by <a href="https://algolia.com/"><img alt="Algolia Search" title="Algolia Search" src="/assets/images/Algolia_logo_bg-white.svg"></a></span></h3>
+            <div class="posts algolia__results"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  {% include footer.html %}
-</body>
+    {% include footer.html %}
+  </body>
 
 </html>
