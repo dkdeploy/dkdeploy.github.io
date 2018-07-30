@@ -27,3 +27,7 @@ INFO  Running /usr/bin/env rm -rf {{site.data.constants.deploy.current_folder}}t
 DEBUG Command: /usr/bin/env rm -rf {{site.data.constants.deploy.current_folder}}typo3temp/Cache
 INFO  Finished in 0.005 seconds with exit status 0 (successful).
 {% endhighlight %}
+
+### Additional information
+
+This task is added to the rollback tasks by default in the `dkdeploy-typo3-cms` gem.
