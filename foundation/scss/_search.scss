@@ -33,7 +33,8 @@
 .algolia__result-text {
   font-size: 0.9rem;
 }
-.algolia__result-link .algolia__result-highlight {
+.algolia__result-link .algolia__result-highlight,
+.algolia__result-text .ais-Highlight {
   background-color: #ffff99;
 }
 .algolia__result-text .algolia__result-highlight {

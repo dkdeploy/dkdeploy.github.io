@@ -8,7 +8,11 @@
       <div class="top-bar show-for-medium" >
         <div class="top-bar-left">
           <ul class="medium-horizontal menu">
-            <li class="menu-text"><a href="{{ site.url }}"><img title="dkdeploy" alt="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg"></a></li>
+            <li class="menu-text dkdeploy-logo">
+              <a href="{{ site.url }}">
+                <img title="dkdeploy" alt="dkdeploy" src="/assets/images/3056-73126-dkdeploy-logo.svg">
+              </a>
+            </li>
             {% for nav in site.data.navigation %}
               {% if page.section == nav.section %}
                 {% assign active = "active" %}
