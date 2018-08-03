@@ -5314,6 +5314,12 @@ li.docs-menu-title {
   background-color: #ffff99;
   border-radius: 3px; }
 
+li.dkdeploy-logo {
+  margin-right: 0;
+  padding-right: 0; }
+  li.dkdeploy-logo a {
+    margin-right: 0; }
+
 h2 {
   border-bottom: 3px solid #97af05; }
 
@@ -5376,7 +5382,8 @@ ul.menu li.active {
   border-radius: 0 0 3px 3px; }
 
 #toc2select {
-  border-radius: 3px; }
+  border-radius: 3px;
+  font-size: 13px; }
 
 #content .hollow, #content .top-bar-left .menu > li a, .top-bar-left .menu > li #content a {
   border-radius: 3px; }
@@ -6777,7 +6784,8 @@ td code.highlighter-rouge {
 .algolia__result-text {
   font-size: 0.9rem; }
 
-.algolia__result-link .algolia__result-highlight {
+.algolia__result-link .algolia__result-highlight,
+.algolia__result-text .ais-Highlight {
   background-color: #ffff99; }
 
 .algolia__result-text .algolia__result-highlight {
