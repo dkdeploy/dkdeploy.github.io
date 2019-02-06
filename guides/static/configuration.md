@@ -14,14 +14,8 @@ If you have followed the instructions on the [Setup](/guides/setup/local_machine
 The **deploy.rb** is our global configuration. Everything inside can be overriden by stage-specific settings and tasks, i.e. **deploy/dev.rb**. Every variable we're using can be read by **fetch(:variable_name)** within our configuration.
 
 {% highlight ruby %}
-# config valid only for current version of Capistrano
-lock '3.5.0'
-
 # the name of the application
 set :application, 'my-first-website'
-
-# We use the copy strategy, no need for an external SCM
-set :scm,             :copy
 
 # This is the folder we're deploying on the server
 set :copy_source,     './output'
