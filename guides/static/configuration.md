@@ -20,9 +20,6 @@ lock '3.5.0'
 # the name of the application
 set :application, 'my-first-website'
 
-# We use the copy strategy, no need for an external SCM
-set :scm,             :copy
-
 # This is the folder we're deploying on the server
 set :copy_source,     './output'
 
