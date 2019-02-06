@@ -17,9 +17,6 @@ The **deploy.rb** is our global configuration. Everything inside can be override
 # the name of the application
 set :application, 'my-first-website'
 
-# We use the copy strategy, no need for an external SCM
-set :scm,             :copy
-
 # This is the folder we're deploying on the server
 set :copy_source,     './output'
 
